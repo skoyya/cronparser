@@ -9,11 +9,16 @@ func NewCommandParser() *CommandParser{
 	return &CommandParser{""}
 }
 
-func (mp *CommandParser) Parse(commandExpression string) error {
-	  mp.command = commandExpression
+func (cp *CommandParser) Parse(commandExpression string) error {
+	  cp.command = commandExpression
 	  return nil
 }
 
-func (mp *CommandParser) PrintIt() {
-	fmt.Println("command", mp.command)
+//Add Command specific validations here
+func (cp *CommandParser) Validate(commandExpression string) error {
+    return nil
+}
+
+func (cp *CommandParser) PrintIt() {
+	fmt.Println("command", cp.command)
 }

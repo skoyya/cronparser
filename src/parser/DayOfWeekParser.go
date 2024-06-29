@@ -10,13 +10,18 @@ func NewDayOfWeekParser() *DayOfWeekParser{
 	return &DayOfWeekParser{parser {intervalType: "day of week", floor: 1, ceil: TOTAL_DAYS_OF_WEEK, schedule: make([]int, TOKENS_TO_PRINT)}}
 }
 
+//Add DayOfWeek specific validations here
+func (dow *DayOfWeekParser) Validate(dayOfWeekExpression string) error {
+    return nil
+}
+
 func (dow *DayOfWeekParser) Parse(dayOfWeekExpression string) error {
 	var err error
 	dow.schedule, err = dow.parse(dayOfWeekExpression)
 	if err != nil {
 		return err
 	}
-	//Placeholder to add enhance the functionality only specific to DayOfWeekParser
+	//Placeholder to add or enhance the functionality only specific to DayOfWeekParser
 	return nil
 }
 

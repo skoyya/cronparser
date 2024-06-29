@@ -34,6 +34,7 @@ func (p *parser) printIt() {
 func (p *parser) buildError(expression string) error {
 	return fmt.Errorf("invalid %s expression: %s", p.intervalType, expression)
 }
+
 func (p *parser) parse(expression string) ([]int, error) {
 	if strings.HasPrefix(expression, "*/") {
 		interval, err := strconv.Atoi(expression[2:])

@@ -25,7 +25,12 @@ func (cp *CronParser) Parse(expression string) error {
 	}
 
 	for idx, token := range tokens {
-		err := cp.cronParsers[idx].Parse(token)
+		var err error
+		err = cp.cronParsers[idx].Validate(token)
+		if err != nil {
+			return err
+		}
+		err = cp.cronParsers[idx].Parse(token)
 		if err != nil {
 			return err
 		}

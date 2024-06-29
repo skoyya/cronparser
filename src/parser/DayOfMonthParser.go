@@ -10,6 +10,11 @@ func NewDayOfMonthParser() *DayOfMonthParser{
 	return &DayOfMonthParser{parser {intervalType: "day of month", floor: 1, ceil: TOTAL_DAYS, schedule: make([]int, TOKENS_TO_PRINT)}}
 }
 
+//Add Month specific validations here
+func (dom *DayOfMonthParser) Validate(dayOfMonthExpression string) error {
+    return nil
+}
+
 func (dom *DayOfMonthParser) Parse(dayOfMonthExpression string) error {
 	var err error
 	dom.schedule, err = dom.parse(dayOfMonthExpression)
